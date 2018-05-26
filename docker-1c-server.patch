@@ -1,0 +1,24 @@
+diff --git a/Dockerfile b/Dockerfile
+index 24b531e..064fe30 100644
+--- a/Dockerfile
++++ b/Dockerfile
+@@ -22,8 +22,8 @@ ENV LANG ru_RU.utf8
+ 
+ ADD *.deb /tmp/
+ 
+-ENV PLATFORM_VERSION 83
+-ENV SERVER_VERSION 8.3.10-2639
++ARG PLATFORM_VERSION=83
++ARG SERVER_VERSION=8.3.10-2639
+ RUN dpkg --install /tmp/1c-enterprise$PLATFORM_VERSION-common_${SERVER_VERSION}_amd64.deb 2> /dev/null \
+   && dpkg --install /tmp/1c-enterprise$PLATFORM_VERSION-server_${SERVER_VERSION}_amd64.deb 2> /dev/null \
+   && rm /tmp/*.deb \
+diff --git a/build.sh b/build.sh
+old mode 100755
+new mode 100644
+diff --git a/container/docker-entrypoint.sh b/container/docker-entrypoint.sh
+old mode 100755
+new mode 100644
+diff --git a/run.sh b/run.sh
+old mode 100755
+new mode 100644

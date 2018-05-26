@@ -1,0 +1,6 @@
+[submodule "docker-1c-server"]
+	path = docker-1c-server
+	url = https://github.com/alexanderfefelov/docker-1c-server.git
+[submodule "docker-postgrespro-1c"]
+	path = docker-postgrespro-1c
+	url = https://github.com/alexanderfefelov/docker-postgrespro-1c.git

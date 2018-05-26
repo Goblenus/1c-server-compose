@@ -1,0 +1,43 @@
+version: '3'
+services:
+  1c-postgres:
+    image: postgrespro-1c:latest
+    build:
+      context: ./docker-postgrespro-1c
+    expose:
+      - 5432
+    volumes:
+      - "1c-postgres-data:/data:rw"
+      - "/etc/localtime:/etc/localtime:ro"
+    environment:
+      POSTGRES_PASSWORD: 1c_pg_password_Sec3t
+    restart: always
+    deploy:
+      restart_policy:
+        condition: any
+        delay: 5s
+        window: 120s
+  1c-server:
+    image: 1c-server:8.3.11-2867
+    build: 
+      context: ./docker-1c-server
+      args:
+        PLATFORM_VERSION: 83
+        SERVER_VERSION: 8.3.11-2867
+    volumes:
+      - "1c-server-home:/home/usr1cv8"
+      - "1c-server-logs:/var/log/1C"
+      - "/etc/localtime:/etc/localtime:ro"
+    ports:
+      - "10.8.0.18:1540-1541:1540-1541"
+      - "10.8.0.18:1560-1591:1560-1591"
+    restart: always
+    deploy:    
+      restart_policy:
+        condition: any
+        delay: 5s
+        window: 120s
+volumes:
+  1c-postgres-data:
+  1c-server-home:
+  1c-server-logs:
