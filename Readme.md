@@ -2,6 +2,11 @@
 
 Это проект, который поможет развернуть Вам свой сервер 1С, посредством Docker контернеризации.
 
+# Зависимости
+
+* [docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+* [docker-compose](https://docs.docker.com/compose/install/)
+
 # Как это развернуть
 
 1. Скачиваем подмодули
@@ -28,3 +33,5 @@ $ cd docker-1c-server && git apply ../docker-1c-server.patch
 # Баги
 
 1. Postgres не проверяет пароль (см. https://github.com/alexanderfefelov/docker-postgrespro-1c/issues/2)
+
+2. Генерится невероятное количество логов? Переименуйте файл `logcfg.xml`, который находится в `.../1c-compose_1c-server-home/_data/.1cv8/1C/1cv8/conf/`
