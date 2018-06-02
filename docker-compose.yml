@@ -31,6 +31,8 @@ services:
     ports:
       - "10.8.0.18:1540-1541:1540-1541"
       - "10.8.0.18:1560-1591:1560-1591"
+    depends_on:
+      - 1c-postgres
     restart: always
     deploy:    
       restart_policy:
